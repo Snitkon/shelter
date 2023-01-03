@@ -25,10 +25,6 @@
   font-weight: 400;
 }
 
-body {
-  position: relative;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -112,10 +108,6 @@ button:hover {
 
 .popup-overlay:hover {
   cursor: pointer;
-}
-
-.image {
-  width: 500px;
 }
 
 .pets-text {
@@ -258,6 +250,7 @@ button:hover {
 .hero-container {
   display: flex;
   padding: 0 40px;
+  gap: 40px;
 }
 
 .hero-wrapper {
@@ -304,16 +297,13 @@ button:hover {
 }
 
 .hero-dog {
-  background-image: url(../../assets/images/start-screen-puppy.png);
-  width: 698px;
-  background-position-x: 42px;
-  background-position-y: 59px;
-  background-repeat: no-repeat;
+  display: flex;
+  align-self: flex-end;
 }
 
 .about-container {
   padding-top: 80px;
-  padding-bottom: 82px;
+  padding-bottom: 100px;
   background-color: var(--color-one);
   display: flex;
   flex-direction: row;
@@ -322,10 +312,8 @@ button:hover {
 }
 
 .about-dogs {
-  background-image: url(../../assets/images/about-pets.png);
-  background-repeat: no-repeat;
-  height: 426px;
-  width: 300px;
+  display: flex;
+  align-self: flex-end;
 }
 .about-wrapper {
   margin-right: 8px;
@@ -551,21 +539,18 @@ button:hover {
 .addition {
   display: flex;
   gap: 32px;
-  padding: 82px 182px 90px;
+  padding: 82px 182px 100px;
 }
 
 .addition-dog {
-  margin-top: 10px;
-  background-image: url(../../assets/images/donation-dog.png);
-  background-repeat: no-repeat;
-  height: 280px;
-  width: 100%;
+  display: flex;
+  align-self: center;
 }
 
 .addition-wrapper {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 41%;
   gap: 20px;
 }
 
@@ -582,7 +567,7 @@ button:hover {
 }
 
 .card-number {
-  width: 93%;
+  width: 94%;
   display: flex;
   background-color: #f1cdb3;
   border-radius: 9px;
@@ -669,167 +654,6 @@ button:hover {
 }
 
 .footer-dog {
-  background-image: url(../../assets/images/footer-puppy.png);
-  height: 310px;
-  width: 300px;
-}
-
-/* Max width 768px */
-
-@media (max-width: 1270px) {
-  .container {
-    max-width: 768px;
-    margin: 0 auto;
-  }
-
-  .popup-container {
-    width: 630px;
-  }
-
-  .image {
-    width: 350px;
-  }
-
-  .pets-text {
-    padding: 10px 9px 37px;
-  }
-
-  .popup-information {
-    font-size: 13px;
-    line-height: 14px;
-  }
-
-  .popup-item {
-    padding-bottom: 5px;
-  }
-
-  .header-container {
-    padding: 30px 30px 0;
-  }
-
-  .hero-container {
-    flex-direction: column;
-  }
-
-  .hero-wrapper {
-    padding: 59px 114px 0 114px;
-    width: auto;
-  }
-
-  .hero-title {
-    width: 85%;
-  }
-
-  .hero-text {
-    width: auto;
-  }
-
-  .hero-button {
-    align-self: center;
-    margin-bottom: 100px;
-  }
-
-  .hero-dog {
-    width: auto;
-    height: 593px;
-    background-size: 571px;
-    background-position-y: 0px;
-    background-position-x: 128px;
-  }
-
-  .about-container {
-    padding-top: 66px;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 80px;
-  }
-
-  .about-wrapper {
-    width: 56%;
-    margin-right: 0;
-  }
-
-  .about-text {
-    width: auto;
-  }
-
-  .friends-container {
-    padding: 80px 30px 100px;
-  }
-
-  .friends-title {
-    width: 65%;
-  }
-
-  .carusel-wrapper {
-    width: 600px;
-    overflow: hidden;
-  }
-
-  .pets-list {
-    position: relative;
-    left: -1020px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-  }
-
-  /* .pet_item:nth-child(3) {
-    display: none;
-  } */
-
-  @keyframes left {
-    from {
-      left: -800px;
-    }
-    to {
-      left: -1500px;
-    }
-  }
-
-  .left {
-    animation-duration: 2s;
-    animation-name: left;
-  }
-
-  @keyframes right {
-    from {
-      left: -800px;
-    }
-    to {
-      left: 0;
-    }
-  }
-
-  .right {
-    animation-duration: 2s;
-    animation-name: right;
-  }
-
-  .help {
-    padding-left: 65px;
-    padding-right: 65px;
-  }
-
-  .help-list {
-    gap: 55px 60px;
-  }
-  .help_item {
-    width: 170px;
-  }
-
-  .addition {
-    padding: 80px 130px 82px;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 48px;
-  }
-
-  .footer-wrapper {
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 13px 40px 0;
-    gap: 61px 59px;
-  }
+  display: flex;
+  align-self: flex-end;
 }
