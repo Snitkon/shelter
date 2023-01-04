@@ -801,3 +801,366 @@ button:hover {
     gap: 61px 59px;
   }
 }
+
+
+                                                /* Max width 700px */
+
+@media (max-width: 700px) {
+   .logo {
+    z-index: 3;
+  }
+
+  .nav {
+    position: fixed;
+    background: #000000;
+    height: 100%;
+    width: 320px;
+    top: 0px;
+    right: -320px;
+    transition: 0.5s;
+    z-index: 1;
+  }
+
+  .open {
+    right: 0;
+    background-color: var(--color-three);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    gap: 16px;
+    padding: 238px 38px;
+    align-items: center;
+  }
+
+  .nav_link {
+    font-size: 32px;
+    line-height: 51px;
+  }
+
+  .burger {
+    margin-left: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 38px;
+    height: 32px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+  }
+
+  .line {
+    width: 80%;
+    height: 2px;
+    background: var(--color-two);
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .friends-container {
+    padding: 44px 10px;
+  }
+
+  .pet_item:nth-child(2) {
+    display: none;
+  }
+
+  .pet_item:nth-child(3) {
+    display: none;
+  }
+
+  .friends-title {
+    width: auto;
+    margin-bottom: 42px;
+  }
+
+  .pets-list {
+  position: relative;
+  left: -349px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 90px;
+  }
+
+  .friends-wrapper {
+    height: 454px;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 0;
+  }
+
+  .carusel-wrapper {
+    width: 295px;
+  }
+
+  @keyframes left {
+    from {
+      left: -350px;
+    }
+    to {
+      left: -700px;
+    }
+  }
+
+  .left {
+    animation-duration: 1s;
+    animation-name: left;
+  }
+
+  @keyframes right {
+    from {
+      left: -350px;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  .right {
+    animation-duration: 1s;
+    animation-name: right;
+  }
+
+  .prev-button {
+    display: none;
+  }
+
+  .next-button {
+    display: none;
+  }
+
+  .arrow_block {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 42px;
+  }
+
+  .arrow-button_prev {
+    height: 52px;
+    width: 52px;
+    border-radius: 100px;
+    border: var(--color-two) solid 2px;
+  }
+
+  .arrow-button_next {
+    height: 52px;
+    width: 52px;
+    border-radius: 100px;
+    border: var(--color-two) solid 2px;
+  }
+
+}
+
+
+                                                /* Max width 550px */
+
+@media (max-width: 550px) {
+  h2 {
+    font-size: 25px;
+    letter-spacing: 1.5px;
+  }
+
+  h3 {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 1.5px;
+  }
+
+  .header-container {
+    justify-content: flex-start;
+    padding: 30px 49px 30px 10px;
+    background-position: 2px -30px;
+    background-size: auto 608px;
+  }
+
+  /* .burger.open .line1 {
+    transform: rotate(-90deg) translate(-11px, 0px);
+  }
+
+  .burger.open .line2 {
+    transform: rotate(-90deg) translate(-1px, 9px);
+  }
+
+  .burger.open .line3 {
+    transform: rotate(90deg) translate(-9px, 9px);
+  } */
+
+  .hero-container {
+    padding: 30px 10px 0;
+    gap: 5px;
+  }
+
+  .hero-wrapper {
+    align-items: center;
+    padding: 0;
+    width: auto;
+  }
+
+  .hero-title {
+    width: 85%;
+    line-height: 32px;
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .hero-text {
+    width: auto;
+    text-align: center;
+  }
+
+  .hero-dog {
+    width: 87%;
+    left: 0;
+  }
+
+  .about-container {
+    padding: 42px 0 36px;
+    gap: 42px;
+  }
+
+  .about-wrapper {
+    margin-right: auto;
+    width: 100%;
+    padding: 0px 10px;
+    gap: 24px;
+  }
+
+  .about-title {
+    text-align: center;
+    align-self: center;
+    width: 95%;
+  }
+
+  .about-text {
+    text-align: justify;
+    align-self: center;
+    width: 90%;
+  }
+  .about-dogs {
+    width: 81%;
+  }
+
+  .friends-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .friends-title {
+    margin-bottom: 22px;
+  }
+
+  .help {
+    padding: 39px 15px;
+  }
+
+  .help-text {
+    padding-bottom: 42px;
+    width: 80%;
+  }
+
+  .help_item {
+    width: 130px;
+    gap: 20px;
+  }
+
+  .help-list {
+    gap: 31px 30px;
+    justify-content: space-between;
+  }
+
+  .help__icon {
+    height: 50px;
+  }
+
+  .help__name {
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: 1px;
+  }
+
+  .addition {
+    padding: 0;
+    gap: 44px;
+    padding-bottom: 42px;
+  }
+
+  .addition-dog {
+    width: 80%;
+  }
+
+  .addition-wrapper {
+    padding: 45px 10px 0;
+    width: 100%;
+  }
+
+  .addition-title {
+    width: 75%;
+    text-align: center;
+    align-self: center;
+  }
+
+  .label {
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+
+  .card-number {
+    width: 94%;
+    align-self: center;
+  }
+
+  .number {
+    font-size: 15px;
+    line-height: 16px;
+    align-self: center;
+    letter-spacing: 0.9px;
+  }
+
+  .addition-text {
+    width: 93%;
+    text-align: justify;
+    align-self: center;
+  }
+
+  .footer-wrapper {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 14px 10px 0;
+    gap: 38px;
+  }
+
+  .footer-title {
+    width: 95%;
+    text-align: center;
+    align-self: center;
+  }
+
+  .info {
+    justify-content: center;
+  }
+
+  .info-location {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .location {
+    padding: 0;
+    gap: 38px;
+  }
+
+  .footer-dog {
+    height: 268px;
+    background-size: 257px;
+    background-repeat: no-repeat;
+    background-position-x: 22px;
+  }
+}
