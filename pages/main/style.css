@@ -514,7 +514,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   justify-items: center;
-  row-gap: 55px;
+  row-gap: 57px;
   column-gap: 60px;
 }
 
@@ -551,7 +551,7 @@ button:hover {
   align-items: center;
   display: flex;
   gap: 32px;
-  padding: 82px 182px 100px;
+  padding: 79px 182px 98px;
 }
 
 .addition-wrapper {
@@ -574,7 +574,7 @@ button:hover {
 }
 
 .card-number {
-  width: 94%;
+  width: 93%;
   display: flex;
   background-color: #f1cdb3;
   border-radius: 9px;
@@ -665,14 +665,19 @@ button:hover {
   align-self: flex-end;
 }
 
-/* Max width 1000px */
-
-@media (max-width: 1000px) {
-  .container {
-    max-width: 768px;
-    margin: 0 auto;
+/* Max width 1270px */
+@media (max-width: 1270px) {
+  .footer-wrapper {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 13px 40px 0;
+    gap: 61px 59px;
   }
+}
 
+/* Max width 1100px */
+
+@media (max-width: 1100px) {
   .pets-text {
     padding: 10px 9px 37px;
   }
@@ -814,17 +819,11 @@ button:hover {
   }
 
   .addition {
-    padding: 80px 130px 100px;
+    padding: 80px 130px 95px;
     flex-direction: column-reverse;
     gap: 60px;
   }
 
-  .footer-wrapper {
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 13px 40px 0;
-    gap: 61px 59px;
-  }
 }
 
 /* Max width 700px */

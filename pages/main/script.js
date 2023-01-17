@@ -189,13 +189,13 @@ popupOverlay.addEventListener("mouseleave", (event) => {
 const list = document.getElementById("pets-list");
 const left = document.querySelector("#leftButton");
 const right = document.querySelector("#rightButton");
-
 const leftBtn = document.querySelector("#leftBtn");
 const rightBtn = document.querySelector("#rightBtn");
-
 const leftPart = document.querySelector("#left-part");
 const activePart = document.querySelector("#active-part");
 const rightPart = document.querySelector("#right-part");
+const arrayItems = [1, 2, 3, 4, 5, 6, 7, 8];
+let arrIdInit = [0, 1, 2];
 
 left.addEventListener("click", () => {
   list.classList.add("left");
@@ -241,29 +241,18 @@ list.addEventListener("animationend", (event) => {
   }
 
   activePart.innerHTML = "";
-
-  let getRandom = function (min = 0, max = 7) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    let one = Math.floor(Math.random() * (max - min + 1)) + min;
-    let two = Math.floor(Math.random() * (max - min + 1)) + min;
-    let three = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (one === two) return getRandom();
-    if (two === three) return getRandom();
-    if (three === one) return getRandom();
-    return [one, two, three];
-  };
-
+  
   let template = "";
-  let arr = getRandom();
-  arr.map((val) => {
-    let info = petsList[val];
+  arrIdInit = arrIdInit.map((val) => {
+    const newIndex = val > 4 ? val - 5 : val + 3;
+    const info = petsList[newIndex];
     template += `<div class="pet_item" data-name="${info.name}">
                     <img src="${info.img}" alt="${info.name}">
                     <p class="pet__name">${info.name}</p>
                     <button class="learn__more">Learn more</button>
                   </div>`;
+    return newIndex;
   });
-
+  
   activePart.insertAdjacentHTML("afterbegin", template);
 });
