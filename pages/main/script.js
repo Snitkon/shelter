@@ -1,32 +1,3 @@
-                                                  //Burger
-const burger = document.querySelector(".burger");
-const nav = document.querySelector(".nav");
-const navLinks = document.querySelectorAll(".nav_link");
-const body = document.querySelector("body");
-const burgerOverlay = document.querySelector(".burger-overlay");
-
-function toggleMenu() {
-  burger.classList.toggle("open");
-  nav.classList.toggle("open");
-  body.classList.toggle("lock");
-  burgerOverlay.classList.toggle("_active");
-}
-
-burger.addEventListener("click", toggleMenu);
-burgerOverlay.addEventListener("click", closeMenu);
-
-navLinks.forEach((el) => el.addEventListener("click", closeMenu));
-
-function closeMenu(event) {
-  if (event.target.classList.contains("nav_link") || event.target.classList.contains("_active")) {
-    burger.classList.remove("open");
-    nav.classList.remove("open");
-    burgerOverlay.classList.remove("_active");
-    body.classList.remove("lock");
-  }
-}
-
-                                                    //Carusel
 const petsList = [
   {
     name: "Katrine",
@@ -127,6 +98,94 @@ const petsList = [
   },
 ];
 
+//Burger
+const burger = document.querySelector(".burger");
+const nav = document.querySelector(".nav");
+const navLinks = document.querySelectorAll(".nav_link");
+const body = document.querySelector("body");
+const burgerOverlay = document.querySelector(".burger-overlay");
+
+function toggleMenu() {
+  burger.classList.toggle("open");
+  nav.classList.toggle("open");
+  body.classList.toggle("lock");
+  burgerOverlay.classList.toggle("_active");
+}
+
+burger.addEventListener("click", toggleMenu);
+burgerOverlay.addEventListener("click", closeMenu);
+
+navLinks.forEach((el) => el.addEventListener("click", closeMenu));
+
+function closeMenu(event) {
+  if (event.target.classList.contains("nav_link") || event.target.classList.contains("_active")) {
+    burger.classList.remove("open");
+    nav.classList.remove("open");
+    burgerOverlay.classList.remove("_active");
+    body.classList.remove("lock");
+  }
+}
+
+//Popup
+const popup = document.querySelector(".popup");
+const popupContainer = popup.querySelector(".popup-wrapper");
+const petsContainer = document.querySelector(".pets-list");
+const btnClose = popup.querySelector(".close");
+const popupOverlay = document.querySelector(".popup-overlay");
+
+function openPopup() {
+  body.classList.add("lock");
+  popupOverlay.classList.add("_active");
+  popup.classList.add("active");
+}
+
+petsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("pet_item") || event.target.parentElement.classList.contains("pet_item")) {
+    openPopup();
+    const petName = event.target.parentElement.getAttribute("data-name") || event.target.getAttribute("date-name");
+    const petInfo = petsList.find((item) => {
+      return item.name === petName;
+    });
+    const pagePopup = `
+    <div class="popup-container">
+      <div class="popup-image">
+        <img class="image" src="${petInfo.img}" alt="${petInfo.name}">
+      </div>
+      <div class="pets-text">
+        <h3 class="popup-title">${petInfo.name}</h3>
+        <div class="popup-subtitle">${petInfo.type} - ${petInfo.breed}</div>
+        <div class="popup-information">${petInfo.description}</div>
+        <ul class="popup-list">
+          <li class="popup-item"><span class="color"><b>Age:</b> ${petInfo.age}</span></li>
+          <li class="popup-item"><span class="color"><b>Inoculations:</b> ${petInfo.inoculations}</span></li>
+          <li class="popup-item"><span class="color"><b>Diseases:</b> ${petInfo.diseases}</span></li>
+          <li class="popup-item"><span class="color"><b>Parasites:</b> ${petInfo.parasites}</span></li>
+        </ul>
+      </div>
+    </div>
+`;
+    popupContainer.innerHTML = pagePopup;
+  }
+});
+
+function closePopup() {
+  body.classList.remove("lock");
+  popupOverlay.classList.remove("_active");
+  popup.classList.remove("active");
+}
+
+btnClose.addEventListener("click", closePopup);
+popupOverlay.addEventListener("click", closePopup);
+
+popupOverlay.addEventListener("mouseenter", (event) => {
+  btnClose.classList.add("hover");
+});
+
+popupOverlay.addEventListener("mouseleave", (event) => {
+  btnClose.classList.remove("hover");
+});
+
+//Carusel
 const list = document.getElementById("pets-list");
 const left = document.querySelector("#leftButton");
 const right = document.querySelector("#rightButton");
@@ -207,63 +266,4 @@ list.addEventListener("animationend", (event) => {
   });
 
   activePart.insertAdjacentHTML("afterbegin", template);
-});
-
-                                                    //Popup
-const popup = document.querySelector(".popup");
-const popupContainer = popup.querySelector(".popup-wrapper");
-const petsContainer = document.querySelector(".pets-list");
-const btnClose = popup.querySelector(".close");
-const popupOverlay = document.querySelector(".popup-overlay");
-
-function openPopup() {
-  body.classList.add("lock");
-  popupOverlay.classList.add("_active");
-  popup.classList.add("active");
-}
-
-petsContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("pet_item") || event.target.parentElement.classList.contains("pet_item")) {
-    openPopup();
-    const petName = event.target.parentElement.getAttribute("data-name") || event.target.getAttribute("date-name");
-    const petInfo = petsList.find((item) => {
-      return item.name === petName;
-    });
-    const pagePopup = `
-    <div class="popup-container">
-      <div class="popup-image">
-        <img class="image" src="${petInfo.img}" alt="${petInfo.name}">
-      </div>
-      <div class="pets-text">
-        <h3 class="popup-title">${petInfo.name}</h3>
-        <div class="popup-subtitle">${petInfo.type} - ${petInfo.breed}</div>
-        <div class="popup-information">${petInfo.description}</div>
-        <ul class="popup-list">
-          <li class="popup-item"><span class="color"><b>Age:</b> ${petInfo.age}</span></li>
-          <li class="popup-item"><span class="color"><b>Inoculations:</b> ${petInfo.inoculations}</span></li>
-          <li class="popup-item"><span class="color"><b>Diseases:</b> ${petInfo.diseases}</span></li>
-          <li class="popup-item"><span class="color"><b>Parasites:</b> ${petInfo.parasites}</span></li>
-        </ul>
-      </div>
-    </div>
-`;
-    popupContainer.innerHTML = pagePopup;
-  }
-});
-
-function closePopup() {
-  body.classList.remove("lock");
-  popupOverlay.classList.remove("_active");
-  popup.classList.remove("active");
-}
-
-btnClose.addEventListener("click", closePopup);
-popupOverlay.addEventListener("click", closePopup);
-
-popupOverlay.addEventListener("mouseenter", (event) => {
-  btnClose.classList.add("hover");
-});
-
-popupOverlay.addEventListener("mouseleave", (event) => {
-  btnClose.classList.remove("hover");
 });

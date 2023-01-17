@@ -59,7 +59,6 @@ const petsList = [
     diseases: ["none"],
     parasites: ["none"],
   },
-
   {
     name: "Timmy",
     img: "../../assets/images/timmy.png",
@@ -185,3 +184,145 @@ popupOverlay.addEventListener("mouseenter", (event) => {
 popupOverlay.addEventListener("mouseleave", (event) => {
   btnClose.classList.remove("hover");
 });
+
+//Pagination
+const list = document.getElementById("pets-list");
+const numberPage = document.getElementById("page-number");
+const btnPrev = document.querySelector("#prev-button");
+const btnNext = document.querySelector("#next-button");
+const lastPage = document.querySelector("#last-page");
+const firstPage = document.querySelector("#first-page");
+
+let page = 1
+let quantityPage
+let widthWindowSite = window.innerWidth
+
+
+
+function shuffleNew(arr) {
+  const values = [...arr].map((el) => el);
+  const result = [...Array(8)].map(() => values.splice(Math.floor(Math.random() * values.length), 1)[0]);
+  return result;
+}
+
+function arrayNew(arr) {
+  const petsListNew = [];
+  for (let i = 0; i < 6; i++) {
+  let shufflePetsList = shuffleNew(arr);
+    shufflePetsList.map((el) => {
+      petsListNew.push(el);
+    });
+  }
+  return petsListNew;
+}
+
+const newPetsList = arrayNew(petsList);
+function randerPage(numberPage) {
+  let template = "";
+  let startCard;
+  let lastCard
+  switch (true) {
+    case widthWindowSite >= 1280:
+      quantityPage = 6;
+      quantityCard = 8;
+
+      startCard = (numberPage * quantityCard) - 1;
+      lastCard = startCard - 7;
+
+      for (let i = startCard; i >= lastCard; i--) {
+        template += `<div class="pet_item" data-name="${newPetsList[i].name}">
+                    <img src="${newPetsList[i].img}" alt="${newPetsList[i].name}">
+                    <p class="pet__name">${newPetsList[i].name}</p>
+                    <button class="learn__more">Learn more</button>
+                  </div>`;
+      }
+      list.innerHTML = template;
+      break;
+    case widthWindowSite >= 768 && widthWindowSite < 1280:
+      quantityPage = 8;
+      quantityCard = 6;
+
+      startCard = (numberPage * quantityCard) - 1;
+      lastCard = startCard - 5;
+
+      for (let i = startCard; i >= lastCard; i--) {
+        template += `<div class="pet_item" data-name="${newPetsList[i].name}">
+                    <img src="${newPetsList[i].img}" alt="${newPetsList[i].name}">
+                    <p class="pet__name">${newPetsList[i].name}</p>
+                    <button class="learn__more">Learn more</button>
+                  </div>`;
+      }
+      list.innerHTML = template;
+      break;
+    case widthWindowSite >= 320 && widthWindowSite < 768:
+      quantityPage = 16;
+      quantityCard = 3;
+
+      startCard = (numberPage * quantityCard) - 1;
+      lastCard = startCard - 2;
+
+      for (let i = startCard; i >= lastCard; i--) {
+        template += `<div class="pet_item" data-name="${newPetsList[i].name}">
+                    <img src="${newPetsList[i].img}" alt="${newPetsList[i].name}">
+                    <p class="pet__name">${newPetsList[i].name}</p>
+                    <button class="learn__more">Learn more</button>
+                  </div>`;
+      }
+      list.innerHTML = template;
+      break;
+  }
+}
+
+randerPage(page);
+btnPrev.addEventListener("click", () => {
+  page -= 1;
+  numberPage.innerHTML = String(page);
+  randerPage(page);
+
+  if(page === 1) {
+    btnPrev.setAttribute("disabled", "disabled");
+    firstPage.setAttribute("disabled", "disabled");
+  } else if (page > 1) {
+    btnNext.removeAttribute("disabled", "disabled");
+    lastPage.removeAttribute("disabled", "disabled");
+  }
+
+})
+
+btnNext.addEventListener("click", () => {
+  page += 1
+  numberPage.innerHTML = String(page)
+  randerPage(page);
+
+  if (page === quantityPage) {
+    btnNext.setAttribute("disabled", "disabled");
+    lastPage.setAttribute("disabled", "disabled");
+  } else if (page < quantityPage) {
+    btnPrev.removeAttribute("disabled", "disabled");
+    firstPage.removeAttribute("disabled", "disabled");
+  }
+})
+
+lastPage.addEventListener("click", () => {
+  numberPage.innerHTML = String((page = quantityPage));
+  randerPage(page);
+
+    if (page === quantityPage) {
+      btnNext.setAttribute("disabled", "disabled");
+      lastPage.setAttribute("disabled", "disabled");
+      btnPrev.removeAttribute("disabled", "disabled");
+      firstPage.removeAttribute("disabled", "disabled");
+    }
+})
+
+firstPage.addEventListener("click", () => {
+  numberPage.innerHTML = String(page = 1)
+  randerPage(page);
+
+    if (page === 1) {
+      btnPrev.setAttribute("disabled", "disabled");
+      firstPage.setAttribute("disabled", "disabled");
+      btnNext.removeAttribute("disabled", "disabled");
+      lastPage.removeAttribute("disabled", "disabled");
+    }
+})
